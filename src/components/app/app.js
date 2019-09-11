@@ -1,6 +1,7 @@
 import React from 'react';
 import Topbar from './../topbar/topbar';
 import Sidebar from './../sidebar/sidebar';
+import ManageRecords from './../manage-records/manage-records';
 
 class App extends React.Component {
     render() {
@@ -17,10 +18,6 @@ class App extends React.Component {
                             </div>
 
                             <div className="col-md-10 dashboard-section">
-                                <div className="title">
-                                    <h5>Manage Team</h5>
-                                </div>
-
                             </div>
                         </div>
                     </div>
