@@ -1,9 +1,69 @@
 import React from 'react';
+import { Doughnut } from 'react-chartjs-2';
+import { Bar } from 'react-chartjs-2';
+import { Line } from 'react-chartjs-2';
+
+
+const doughnutData = {
+    labels: [
+        'Red',
+        'Green',
+        'Yellow'
+    ],
+    datasets: [{
+        data: [20, 25, 55],
+        backgroundColor: [
+            '#FF6384',
+            '#36A2EB',
+            '#FFCE56'
+        ],
+        hoverBackgroundColor: [
+            '#FF6384',
+            '#36A2EB',
+            '#FFCE56'
+        ]
+    }]
+};
 
 class Dashboard extends React.Component {
     render() {
         return (
-            <h1>Hey I am home</h1>
+            <React.Fragment>
+                <section>
+
+                    <div class="title">
+                        <h5>Dashboard</h5>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-6">
+
+                            <div class="box">
+                                <Doughnut data={doughnutData} />
+                            </div>
+                        </div>
+
+                        <div class="col-md-6">
+                            <div class="box">
+                                <Bar data={doughnutData} />
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div className="row">
+                        <div className="col-md-12">
+                            <div className="box">
+                                <Line data={doughnutData} />
+                            </div>
+                        </div>
+                    </div>
+
+
+
+
+                </section>
+            </React.Fragment>
         )
     }
 }

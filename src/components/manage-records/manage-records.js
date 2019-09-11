@@ -21,10 +21,10 @@ class ManageRecords extends React.Component {
                                     <form action="" method="get" className="row">
 
                                         <div className="form-group col-md-6">
-                                            <label for="email">Select Status</label>
+                                            <label htmlFor="email">Select Status</label>
                                             <select name="status" className="form-control">
-                                                <option value="">All</option>
-                                                <option value="Submitted" selected="">Submitted</option>
+                                                <option >All</option>
+                                                <option value="Submitted">Submitted</option>
                                                 <option value="Ringing">Ringing</option>
                                                 <option value="Call back">Call back</option>
                                                 <option value="Meeting Propose/Active">Meeting Propose/Active</option>
@@ -39,9 +39,9 @@ class ManageRecords extends React.Component {
                                         </div>
 
                                         <div className="form-group col-md-6">
-                                            <label for="exampleInputEmail1">Project</label>
+                                            <label htmlFor="exampleInputEmail1">Project</label>
                                             <select name="project" className="form-control">
-                                                <option value="">All Project</option>
+                                                <option >All Project</option>
                                                 <option value="Apex our homes">Apex our homes</option>
                                                 <option value="OSB Expressway Tower">OSB Expressway Tower</option>
                                                 <option value="sec.37,109">sec.37,109</option>
@@ -49,9 +49,9 @@ class ManageRecords extends React.Component {
                                         </div>
 
                                         <div className="form-group col-md-6">
-                                            <label for="exampleInputEmail1">Lead Source</label>
+                                            <label htmlFor="exampleInputEmail1">Lead Source</label>
                                             <select name="lead_source" className="form-control">
-                                                <option value="">All</option>
+                                                <option >All</option>
                                                 <option value="Facebook">Facebook</option>
                                                 <option value="Portal">Portal</option>
                                                 <option value="SMS">SMS</option>
@@ -60,9 +60,9 @@ class ManageRecords extends React.Component {
                                         </div>
 
                                         <div className="form-group col-md-6">
-                                            <label for="email">Assigned to</label>
+                                            <label htmlFor="email">Assigned to</label>
                                             <select name="team_member" className="form-control">
-                                                <option value="">All</option>
+                                                <option >All</option>
                                                 <option value="28">Abhishek Pandey</option>
                                                 <option value="23">Pankaj Katara</option>
                                                 <option value="26">Pankaj Yadav</option>
@@ -76,19 +76,19 @@ class ManageRecords extends React.Component {
                                         </div>
 
                                         <div className="form-group col-md-6">
-                                            <label for="exampleInputEmail1">Date From</label>
-                                            <input type="date" className="form-control" name="date_from" value="" />
+                                            <label htmlFor="exampleInputEmail1">Date From</label>
+                                            <input type="date" className="form-control" name="date_from" />
                                         </div>
 
                                         <div className="form-group col-md-6">
-                                            <label for="exampleInputEmail1">Date Till</label>
-                                            <input type="date" className="form-control" name="date_till" value="" />
+                                            <label htmlFor="exampleInputEmail1">Date Till</label>
+                                            <input type="date" className="form-control" name="date_till" />
                                         </div>
 
 
                                         <div className="form-group col-md-12">
-                                            <label for="email">Search Text</label>
-                                            <input type="text" name="q" value="" className="form-control" placeholder="Search by name,email,phone no" />
+                                            <label htmlFor="email">Search Text</label>
+                                            <input type="text" name="q" className="form-control" placeholder="Search by name,email,phone no" />
                                         </div>
 
                                     </form>
@@ -175,7 +175,7 @@ class ManageRecords extends React.Component {
                             <tbody>
 
                                 <tr>
-                                    <td colspan="25">No record found.</td>
+                                    <td>No record found.</td>
                                 </tr>
                             </tbody>
                         </table>
