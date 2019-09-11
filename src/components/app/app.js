@@ -8,16 +8,16 @@ class App extends React.Component {
             <React.Fragment>
                 <Topbar />
 
-                <div class="wrapper">
-                    <div class="container-fluid">
-                        <div class="row">
+                <div className="wrapper">
+                    <div className="container-fluid">
+                        <div className="row">
 
-                            <div class="col-md-2">
+                            <div className="col-md-2">
                                 <Sidebar />
                             </div>
 
-                            <div class="col-md-10 dashboard-section">
-                                <div class="title">
+                            <div className="col-md-10 dashboard-section">
+                                <div className="title">
                                     <h5>Manage Team</h5>
                                 </div>
 
