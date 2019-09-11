@@ -37,7 +37,7 @@ class Sidebar extends React.Component {
                     </div>
                     <ul className="sidebar-nav ml-auto">
                         <li className="nav-item active">
-                            <a className="nav-link" href="index.php"><i className="fas fa-th"></i>Dashboard</a>
+                            <a className="nav-link" href="# "><i className="fas fa-th"></i>Dashboard</a>
                         </li>
                         <li className="nav-item">
                             <a className="nav-link" href="# " id="link1"><i className="fas fa-th"></i>Manage Records</a>
