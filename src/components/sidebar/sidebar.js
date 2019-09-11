@@ -1,9 +1,8 @@
 import React from 'react';
 import userIcon from './../../images/user.jpg';
 import $ from 'jquery';
-import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
-import Dashboard from './../dashboard/dashboard';
-import ManageRecords from './../manage-records/manage-records';
+import { Link } from 'react-router-dom';
+
 
 class Sidebar extends React.Component {
     componentDidMount() {
@@ -34,28 +33,22 @@ class Sidebar extends React.Component {
         return (
 
             <React.Fragment>
-                <Router>
-                    <div className="sidebar">
-                        <div className="user-icon">
-                            <img src={userIcon} alt="userIcon" />
-                        </div>
-                        <ul className="sidebar-nav ml-auto">
-
-                            <li className="nav-item">
-                                <Link className="nav-link" to="/" ><i className="fas fa-th"></i>Dashboard</Link>
-                            </li>
-
-                            <li className="nav-item">
-                                <Link to="/manage-records" className="nav-link" id="link1"><i className="fas fa-th"></i>Manage Records</Link>
-                            </li>
-
-                        </ul>
+                <div className="sidebar">
+                    <div className="user-icon">
+                        <img src={userIcon} alt="userIcon" />
                     </div>
+                    <ul className="sidebar-nav ml-auto">
 
-                    <Route path="/" component={Dashboard} />
-                    <Route path="/manage-records" component={ManageRecords} />
+                        <li className="nav-item">
+                            <Link className="nav-link" to="/" ><i className="fas fa-th"></i>Dashboard</Link>
+                        </li>
 
-                </Router>
+                        <li className="nav-item">
+                            <Link to="/manage-records" className="nav-link" id="link1"><i className="fas fa-th"></i>Manage Records</Link>
+                        </li>
+
+                    </ul>
+                </div>
             </React.Fragment>
         )
     }
