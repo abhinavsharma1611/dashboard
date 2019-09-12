@@ -1,4 +1,5 @@
 import React from 'react';
+import { Table } from './table';
 
 class ManageRecords extends React.Component {
     render() {
@@ -157,29 +158,7 @@ class ManageRecords extends React.Component {
 
                     </div>
 
-                    <div className="box">
-                        <table className="table table-bordered table-hover">
-                            <thead>
-                                <tr>
-                                    <th>S.N.</th>
-                                    <th width="1%"><input type="checkbox" /></th>
-                                    <th>Contact Info</th>
-                                    <th>Last Conversion</th>
-                                    <th>Asign To</th>
-                                    <th>Lead Source</th>
-                                    <th>Date</th>
-                                    <th>Status</th>
-                                    <th>Delete</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-
-                                <tr>
-                                    <td>No record found.</td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
+                    <Table />
 
                 </section>
             </React.Fragment>
