@@ -1,7 +1,6 @@
 import React from 'react';
 import { BrowserRouter as Router } from 'react-router-dom';
 import Topbar from './../topbar/topbar';
-import Sidebar from './../sidebar/sidebar';
 import Routes from './../routes/routes';
 
 class App extends React.Component {
@@ -12,12 +11,9 @@ class App extends React.Component {
                     <Topbar />
 
                     <div className="wrapper">
-                        <div className="container-fluid">
+                        <div className="container">
                             <div className="row">
-                                <div className="col-md-2">
-                                    <Sidebar />
-                                </div>
-                                <div className="col-md-10 dashboard-section">
+                                <div className="col-md-12 dashboard-section">
                                     <Routes />
                                 </div>
                             </div>

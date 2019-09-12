@@ -105,6 +105,13 @@ a.nav-link {
     font-size: 26px;
 }
 
+/* Login, Signup */
+
+.inputform {
+    margin-top: 100px;
+}
+
+
 /*SideBar*/
 
 .user-icon {
