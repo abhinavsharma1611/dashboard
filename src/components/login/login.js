@@ -1,7 +1,6 @@
 import React from 'react';
 import { Link, Redirect } from 'react-router-dom';
 import Routes from './../routes/routes'
-import axios from 'axios';
 
 class Login extends React.Component {
     constructor(props) {
@@ -39,11 +38,12 @@ class Login extends React.Component {
             .then(res => res.json())
             .then(function (data) {
                 if (data.hasOwnProperty('access_token')) {
-                    console.log('User exists')
+                    window.location.href = "/dashboard"
                 }
                 else {
-                    console.log('No user');
+                    alert('Not a user')
                 }
+
 
             })
 
