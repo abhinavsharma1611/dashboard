@@ -31,20 +31,20 @@ class Dashboard extends React.Component {
             <React.Fragment>
                 <section>
 
-                    <div class="title">
+                    <div className="title">
                         <h5>Dashboard</h5>
                     </div>
 
-                    <div class="row">
-                        <div class="col-md-6">
+                    <div className="row">
+                        <div className="col-md-6">
 
-                            <div class="box">
+                            <div className="box">
                                 <Doughnut data={doughnutData} />
                             </div>
                         </div>
 
-                        <div class="col-md-6">
-                            <div class="box">
+                        <div className="col-md-6">
+                            <div className="box">
                                 <Bar data={doughnutData} />
                             </div>
                         </div>
