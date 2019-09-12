@@ -1,16 +1,18 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
+import Routes from './../routes/routes'
 
 class Login extends React.Component {
     constructor(props) {
         super(props);
-        this.state = { userEmail: '', userPassword: '' };
+        this.state = { userEmail: '', userPassword: '', access_token: false };
         this.getEmail = this.getEmail.bind(this);
         this.getPassword = this.getPassword.bind(this);
         this.postData = this.postData.bind(this);
     }
 
-    componentWillMount() {
-        console.log('Compponent Mounted');
+    componentDidMount() {
+        console.log('Hey');
     }
 
     getEmail(e) {
@@ -21,19 +23,21 @@ class Login extends React.Component {
         this.setState({ userPassword: e.target.value });
     }
 
-    postData(e) {
+    async postData(e) {
         e.preventDefault();
         const url = 'https://hungry-shrimp-58.localtunnel.me/api/auth/login';
 
-        fetch(url, {
+        await fetch(url, {
             method: 'POST',
             headers: {
                 'Accept': 'application/json',
                 'Content-Type': 'application/json'
             },
             body: JSON.stringify({ userEmail: this.state.userEmail, userPassword: this.state.userPassword }),
-        }).then(res => res.json())
-            .then(data => console.log(data));
+        })
+            .then(res => res.json())
+            .then(data => this.setState({ access_token: data.hasOwnProperty('access_token') }))
+            .then(console.log(this.state.access_token))
     }
 
     render() {
@@ -51,7 +55,9 @@ class Login extends React.Component {
                         <input type="password" className="form-control" placeholder="Password" onChange={this.getPassword} />
                     </div>
 
-                    <button type="submit" className="btn btn-primary">Submit</button>
+                    <button type="submit" className="btn btn-primary btn1">
+                        Submit
+                    </button>
 
                 </form>
             </React.Fragment>
