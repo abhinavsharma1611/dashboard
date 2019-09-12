@@ -82,6 +82,14 @@ a.nav-link {
     box-shadow: none !important;
 }
 
+.box {
+    margin: 10px;
+    padding: 15px;
+    background: white;
+    box-shadow: 0px 5px 20px #ccc;
+
+}
+
 /* TopBar */
 
 .topbar .navbar {
@@ -108,7 +116,16 @@ a.nav-link {
 /* Login, Signup */
 
 .inputform {
+    padding: 40px;
+    width: 50%;
+    margin: 0 auto;
     margin-top: 100px;
+}
+
+.inputform h3 {
+    text-align: center;
+    font-weight: 500;
+    margin-bottom: 30px;
 }
 
 
@@ -166,14 +183,6 @@ a.nav-link {
 }
 
 /* Section */
-
-.box {
-    margin: 10px;
-    padding: 15px;
-    background: white;
-    box-shadow: 0px 5px 20px #ccc;
-
-}
 
 .box table {
     font-size: 14px;

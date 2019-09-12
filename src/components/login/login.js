@@ -1,11 +1,11 @@
 import React from 'react';
-import { Link, Redirect } from 'react-router-dom';
-import Routes from './../routes/routes'
+import { Redirect } from 'react-router-dom';
+import swal from 'sweetalert';
 
 class Login extends React.Component {
     constructor(props) {
         super(props);
-        this.state = { userEmail: '', userPassword: '', };
+        this.state = { userEmail: '', userPassword: '', loggedIn: false };
         this.getEmail = this.getEmail.bind(this);
         this.getPassword = this.getPassword.bind(this);
         this.postData = this.postData.bind(this);
@@ -23,37 +23,44 @@ class Login extends React.Component {
         this.setState({ userPassword: e.target.value });
     }
 
-    async postData(e) {
+    postData(e) {
         e.preventDefault();
         const url = 'https://hungry-shrimp-58.localtunnel.me/api/auth/login';
 
-        await fetch(url, {
+        fetch(url, {
             method: 'POST',
             headers: {
                 'Accept': 'application/json',
-                'Content-Type': 'application/json'
+                'Content-Type': 'application/json',
             },
             body: JSON.stringify({ userEmail: this.state.userEmail, userPassword: this.state.userPassword }),
         })
             .then(res => res.json())
             .then(function (data) {
                 if (data.hasOwnProperty('access_token')) {
-                    window.location.href = "/dashboard"
+                    // window.location.href = "/dashboard"
+                    sessionStorage.setItem(data);
+                    this.setState({ loggedIn: true })
+                    console.log(data);
                 }
                 else {
-                    alert('Not a user')
+                    swal('Not a user')
+                    console.log(data);
                 }
-
-
             })
 
     }
 
     render() {
+
+        if (this.state.loggedIn === true) {
+            return <Redirect to="/dashboard" />
+        }
+
         return (
             <React.Fragment>
-                <form className="inputform" onSubmit={this.postData}>
-                    <h1>Please login</h1>
+                <form className="box inputform" onSubmit={this.postData}>
+                    <h3>Please login here</h3>
                     <div className="form-group">
                         <label>Email address</label>
                         <input type="email" className="form-control" placeholder="Enter email" onChange={this.getEmail} />
@@ -64,7 +71,8 @@ class Login extends React.Component {
                         <input type="password" className="form-control" placeholder="Password" onChange={this.getPassword} />
                     </div>
 
-                    <button type="submit" className="btn btn-primary btn1">
+
+                    <button type="submit" className="btn btn-primary btn-block btn1">
                         Submit
                     </button>
 
