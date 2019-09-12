@@ -1,11 +1,12 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, Redirect } from 'react-router-dom';
 import Routes from './../routes/routes'
+import axios from 'axios';
 
 class Login extends React.Component {
     constructor(props) {
         super(props);
-        this.state = { userEmail: '', userPassword: '', access_token: false };
+        this.state = { userEmail: '', userPassword: '', };
         this.getEmail = this.getEmail.bind(this);
         this.getPassword = this.getPassword.bind(this);
         this.postData = this.postData.bind(this);
@@ -36,8 +37,16 @@ class Login extends React.Component {
             body: JSON.stringify({ userEmail: this.state.userEmail, userPassword: this.state.userPassword }),
         })
             .then(res => res.json())
-            .then(data => this.setState({ access_token: data.hasOwnProperty('access_token') }))
-            .then(console.log(this.state.access_token))
+            .then(function (data) {
+                if (data.hasOwnProperty('access_token')) {
+                    console.log('User exists')
+                }
+                else {
+                    console.log('No user');
+                }
+
+            })
+
     }
 
     render() {
