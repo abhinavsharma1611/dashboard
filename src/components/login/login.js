@@ -2,6 +2,8 @@ import React from 'react';
 import { Redirect } from 'react-router-dom';
 import swal from 'sweetalert';
 
+const Context = React.createContext();
+
 class Login extends React.Component {
     constructor(props) {
         super(props);
@@ -40,6 +42,7 @@ class Login extends React.Component {
                 if (data.hasOwnProperty('access_token')) {
                     this.setState({ loggedIn: true })
                     console.log(data);
+                    console.log(this.state.loggedIn)
                 }
                 else {
                     swal('Not a user')

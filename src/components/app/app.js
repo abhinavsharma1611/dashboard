@@ -14,7 +14,6 @@ class App extends React.Component {
     render() {
 
         if (this.state.loggedIn) {
-
             return (
                 <Router>
                     <React.Fragment>
