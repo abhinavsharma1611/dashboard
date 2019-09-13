@@ -34,8 +34,7 @@ class Dashboard extends React.Component {
     }
 
     componentWillMount() {
-        // const { userData } = this.props.location.state;
-        // this.setState({ userData: userData.user.name });
+
     }
 
     componentDidMount() {
