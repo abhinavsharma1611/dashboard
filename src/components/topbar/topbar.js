@@ -2,11 +2,17 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 class Topbar extends React.Component {
+
+    constructor(props) {
+        super(props);
+        this.state = { userName: 'Guest' }
+    }
+
     render() {
         return (
             <React.Fragment>
                 <div className="topbar">
-                    <nav className="navbar navbar-expand-md navbar-light bg-dark fixed-top">
+                    <nav className="navbar navbar-expand navbar-light bg-dark fixed-top">
                         <div className="container-fluid">
                             <a className="navbar-brand" href="# ">Dashboard</a>
                             <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="# navbarsExample04" aria-controls="navbarsExample04" aria-expanded="false" aria-label="Toggle navigation">
@@ -17,11 +23,11 @@ class Topbar extends React.Component {
                                 <ul className="navbar-nav ml-auto">
 
                                     <li className="nav-item">
-                                        <a href="# " className="nav-link disabled">Welcome Guest</a>
+                                        <a href="# " className="nav-link disabled">Welcome {this.state.userName}</a>
                                     </li>
 
                                     <li className="nav-item">
-                                        <Link to="/" className="nav-link" id="link1">Login</Link>
+                                        <Link to="/" className="nav-link" id="link1">Logout</Link>
                                     </li>
                                 </ul>
                             </div>

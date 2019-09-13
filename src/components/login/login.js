@@ -5,7 +5,7 @@ import swal from 'sweetalert';
 class Login extends React.Component {
     constructor(props) {
         super(props);
-        this.state = { userEmail: '', userPassword: '', loggedIn: false };
+        this.state = { userEmail: '', userPassword: '', loggedIn: false, userData: '' };
         this.getEmail = this.getEmail.bind(this);
         this.getPassword = this.getPassword.bind(this);
         this.postData = this.postData.bind(this);
@@ -38,7 +38,7 @@ class Login extends React.Component {
             .then(res => res.json())
             .then((data) => {
                 if (data.hasOwnProperty('access_token')) {
-                    this.setState({ loggedIn: true })
+                    this.setState({ loggedIn: true, userData: data })
                 }
                 else {
                     swal('Not a user')
@@ -52,7 +52,12 @@ class Login extends React.Component {
     render() {
 
         if (this.state.loggedIn === true) {
-            return <Redirect to="/dashboard" />
+            return <Redirect to={{
+                pathname: '/dashboard',
+                state: {
+                    userData: this.state.userData
+                }
+            }} />
         }
 
         return (

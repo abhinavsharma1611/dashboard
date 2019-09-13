@@ -26,6 +26,21 @@ const doughnutData = {
 };
 
 class Dashboard extends React.Component {
+
+    constructor(props) {
+        super(props);
+        this.state = { userData: 'No data' }
+    }
+
+    componentWillMount() {
+        const { userData } = this.props.location.state;
+        this.setState({ userData: userData.user.name });
+    }
+
+    componentDidMount() {
+        console.log(this.state.userData)
+    }
+
     render() {
         return (
             <React.Fragment>
@@ -33,6 +48,18 @@ class Dashboard extends React.Component {
 
                     <div className="title">
                         <h5>Dashboard</h5>
+                    </div>
+
+
+                    <div className="row">
+                        <div className="col-md-12">
+
+                            <div className="box">
+                                <h1>Welcome {this.state.userData}</h1>
+                            </div>
+                        </div>
+
+
                     </div>
 
                     <div className="row">
@@ -67,5 +94,4 @@ class Dashboard extends React.Component {
         )
     }
 }
-
 export default Dashboard;
