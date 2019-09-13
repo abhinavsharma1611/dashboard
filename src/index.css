@@ -40,6 +40,12 @@ img {
     max-width: 100%;
 }
 
+.container-fluid {
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 0 !important;
+}
+
 .col-md-2 {
     padding-left: 0;
 }

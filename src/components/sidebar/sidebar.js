@@ -40,7 +40,7 @@ class Sidebar extends React.Component {
                     <ul className="sidebar-nav ml-auto">
 
                         <li className="nav-item">
-                            <Link className="nav-link" to="/" ><i className="fas fa-th"></i>Dashboard</Link>
+                            <Link className="nav-link" to="/dashboard" ><i className="fas fa-th"></i>Dashboard</Link>
                         </li>
 
                         <li className="nav-item">

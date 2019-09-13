@@ -55,7 +55,8 @@ class Login extends React.Component {
             return <Redirect to={{
                 pathname: '/dashboard',
                 state: {
-                    userData: this.state.userData
+                    userData: this.state.userData,
+                    loggedIn: this.state.loggedIn
                 }
             }} />
         }

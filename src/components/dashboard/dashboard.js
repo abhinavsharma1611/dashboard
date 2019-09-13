@@ -1,4 +1,5 @@
 import React from 'react';
+import Sidebar from './../sidebar/sidebar';
 import { Doughnut } from 'react-chartjs-2';
 import { Bar } from 'react-chartjs-2';
 import { Line } from 'react-chartjs-2';
@@ -33,8 +34,8 @@ class Dashboard extends React.Component {
     }
 
     componentWillMount() {
-        const { userData } = this.props.location.state;
-        this.setState({ userData: userData.user.name });
+        // const { userData } = this.props.location.state;
+        // this.setState({ userData: userData.user.name });
     }
 
     componentDidMount() {
