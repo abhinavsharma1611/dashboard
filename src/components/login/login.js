@@ -25,7 +25,7 @@ class Login extends React.Component {
 
     postData(e) {
         e.preventDefault();
-        const url = 'https://hungry-shrimp-58.localtunnel.me/api/auth/login';
+        const url = 'https://brown-vampirebat-7.localtunnel.me/api/auth/login';
 
         fetch(url, {
             method: 'POST',
@@ -36,12 +36,9 @@ class Login extends React.Component {
             body: JSON.stringify({ userEmail: this.state.userEmail, userPassword: this.state.userPassword }),
         })
             .then(res => res.json())
-            .then(function (data) {
+            .then((data) => {
                 if (data.hasOwnProperty('access_token')) {
-                    // window.location.href = "/dashboard"
-                    sessionStorage.setItem(data);
                     this.setState({ loggedIn: true })
-                    console.log(data);
                 }
                 else {
                     swal('Not a user')
@@ -50,6 +47,7 @@ class Login extends React.Component {
             })
 
     }
+
 
     render() {
 
