@@ -27,7 +27,8 @@ class Login extends React.Component {
 
     postData(e) {
         e.preventDefault();
-        const url = 'https://brown-vampirebat-7.localtunnel.me/api/auth/login';
+        const url = 'http://lara-api.advertindia.in/api/auth/login';
+        const user = 'yash@eminent';
 
         fetch(url, {
             method: 'POST',
