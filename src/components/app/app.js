@@ -1,5 +1,6 @@
 import React from 'react';
 import { BrowserRouter as Router } from 'react-router-dom';
+import { connect } from 'react-redux';
 import Topbar from './../topbar/topbar';
 import Sidebar from './../sidebar/sidebar';
 import PrivateRoutes from './../routes/private-routes';
@@ -8,10 +9,11 @@ import PublicRoutes from './../routes/public-routes';
 class App extends React.Component {
     constructor(props) {
         super(props);
-        this.state = { loggedIn: false }
+        this.state = { islogged: this.props.islogged }
     }
 
     render() {
+        console.log(this.state.islogged);
 
         if (this.state.loggedIn) {
             return (
@@ -60,4 +62,14 @@ class App extends React.Component {
     }
 }
 
-export default App;
+const mapStateToProps = (state) => {
+    return {
+        islogged: state.islogged
+    }
+}
+
+const mapDispatchToProps = (dispatch) => ({
+    islogged: dispatch.islogged
+});
+
+export default connect(mapStateToProps)(App);

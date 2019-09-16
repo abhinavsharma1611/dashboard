@@ -2,8 +2,6 @@ import React from 'react';
 import { Redirect } from 'react-router-dom';
 import swal from 'sweetalert';
 
-const Context = React.createContext();
-
 class Login extends React.Component {
     constructor(props) {
         super(props);
@@ -28,7 +26,7 @@ class Login extends React.Component {
     postData(e) {
         e.preventDefault();
         const url = 'http://lara-api.advertindia.in/api/auth/login';
-        const user = 'yash@eminent';
+        // const user = 'yash@eminent';
 
         fetch(url, {
             method: 'POST',
@@ -43,7 +41,6 @@ class Login extends React.Component {
                 if (data.hasOwnProperty('access_token')) {
                     this.setState({ loggedIn: true })
                     console.log(data);
-                    console.log(this.state.loggedIn)
                 }
                 else {
                     swal('Not a user')
