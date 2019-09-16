@@ -13,9 +13,7 @@ class App extends React.Component {
     }
 
     render() {
-        console.log(this.state.islogged);
-
-        if (this.state.loggedIn) {
+        if (this.state.islogged) {
             return (
                 <Router>
                     <React.Fragment>
@@ -67,9 +65,5 @@ const mapStateToProps = (state) => {
         islogged: state.islogged
     }
 }
-
-const mapDispatchToProps = (dispatch) => ({
-    islogged: dispatch.islogged
-});
 
 export default connect(mapStateToProps)(App);

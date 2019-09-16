@@ -1,18 +1,22 @@
 import React from 'react';
 import { Redirect } from 'react-router-dom';
+import { connect } from 'react-redux';
 import swal from 'sweetalert';
 
 class Login extends React.Component {
     constructor(props) {
         super(props);
-        this.state = { userEmail: '', userPassword: '', loggedIn: false };
-        this.getEmail = this.getEmail.bind(this);
-        this.getPassword = this.getPassword.bind(this);
-        this.postData = this.postData.bind(this);
+        this.state = {
+            userEmail: '', userPassword: '',
+            isLogged: this.props.isLogged
+        }
+        this.getEmail = this.getEmail.bind(this)
+        this.getPassword = this.getPassword.bind(this)
+        this.postData = this.postData.bind(this)
     }
 
     componentDidMount() {
-        console.log('Hey');
+        console.log(this.props.isLogged);
     }
 
     getEmail(e) {
@@ -39,8 +43,7 @@ class Login extends React.Component {
             .then(res => res.json())
             .then((data) => {
                 if (data.hasOwnProperty('access_token')) {
-                    this.setState({ loggedIn: true })
-                    console.log(data);
+                    return null;
                 }
                 else {
                     swal('Not a user')
@@ -52,20 +55,14 @@ class Login extends React.Component {
 
 
     render() {
-
-        if (this.state.loggedIn === true) {
+        if (this.props.isLogged) {
             return <Redirect to={{
-                pathname: '/dashboard',
-                state: {
-                    loggedIn: this.state.loggedIn,
-                    userData: this.state.userData,
-                }
+                pathname: '/dashboard'
             }} />
         }
-
         return (
             <React.Fragment>
-                <form className="box inputform" onSubmit={this.postData}>
+                <form className="box inputform" autoComplete="on" onSubmit={this.postData}>
                     <h3>Please login here</h3>
                     <div className="form-group">
                         <label>Email address</label>
@@ -74,11 +71,11 @@ class Login extends React.Component {
 
                     <div className="form-group">
                         <label>Password</label>
-                        <input type="password" className="form-control" placeholder="Password" onChange={this.getPassword} />
+                        <input type="password" autoComplete="on" className="form-control" placeholder="Password" onChange={this.getPassword} />
                     </div>
 
 
-                    <button type="submit" className="btn btn-primary btn-block btn1">
+                    <button type="submit" className="btn btn-primary btn-block btn1" >
                         Submit
                     </button>
 
@@ -88,4 +85,18 @@ class Login extends React.Component {
     }
 }
 
-export default Login;
+
+const mapStateToProps = (state) => {
+    return {
+        islogged: state.islogged
+    };
+}
+
+// const mapDispatchToProps = (dispatch) => {
+//     return {
+//         islogged: () => dispatch({ type: 'loggedin' })
+//     }
+// }
+
+
+export default connect(mapStateToProps)(Login);
